@@ -51,5 +51,59 @@ textarea {
 }
 
 .newTodo {
-  height: 50px;
+  box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0, 0.3);
+  font-size: 1.5rem;
+  font-style: italic;
+  width: 100%;
+  align-items: center;
+}
+
+.todo-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #00000079;
+}
+
+li {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+button {
+  padding-right: 35px;
+}
+
+.todo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 15px;
+  font-weight: 500;
+  flex: 1;
+  outline: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  word-break: break-all;
+  line-height: 1.2;
+  transition: color 0.3s;
+  padding: 15px 15px 17px 15px;
+}
+
+.todo.checked {
+  color: grey;
+  text-decoration: line-through;
+}
+
+.remove {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  outline: navajowhite;
+  width: 50px;
+  color: #ff7675;
 }

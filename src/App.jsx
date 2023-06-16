@@ -1,42 +1,35 @@
-import { useState } from "react";
-import index from "./index.css";
+import React, { useState } from "react";
 
-export default function App() {
-  const [value, setValue] = useState("");
+import NewTodo from "./Components/newTodo/index";
+import TaskSection from "./Components/TaskSection/index";
 
-  const targetValue = (e) => {
-    setValue(e.target.value);
-  };
+import "./index.css";
 
-  const erase = () => {
-    setValue("");
-  };
+const App = () => {
+  const [todos, setTodos] = useState([]);
 
-  const submitValue = (e) => {
-    const ESCAPE_KEY = 27;
-    const ENTER_KEY = 13;
-
-    if (e.which === ENTER_KEY) {
-      console.log(value);
-      erase();
-    } else if (e.which === ESCAPE_KEY) {
-      erase();
-    }
+  const onNewTodo = (value) => {
+    setTodos([
+      ...todos,
+      {
+        id: new Date().getTime(),
+        title: value,
+        checked: false,
+      },
+    ]);
   };
 
   return (
     <section id="app" className="container">
-      <h1 className="title">Lista de tarefas</h1>
-      <div className="main">
-        <input
-          className="newTodo"
-          placeholder="O que precisa ser feito!"
-          type="text"
-          value={value}
-          onChange={targetValue}
-          onKeyDown={submitValue}
-        />
-      </div>
+      <header>
+        <h1 className="title">todo</h1>
+      </header>
+      <section className="main">
+        <NewTodo onNewTodo={onNewTodo} />
+        <TaskSection todos={todos} setTodos={setTodos} />
+      </section>
     </section>
   );
-}
+};
+
+export default App;
