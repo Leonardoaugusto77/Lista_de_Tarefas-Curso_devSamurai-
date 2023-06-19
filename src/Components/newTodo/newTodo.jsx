@@ -32,6 +32,9 @@ const NewTodo = ({ onNewTodo }) => {
 
   return (
     <input
+      style={{
+        fontSize: "25px",
+      }}
       className="new-todo"
       placeholder="o que precisa ser feito?"
       value={value}
